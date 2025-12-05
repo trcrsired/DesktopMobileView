@@ -67,16 +67,19 @@
 
   // Apply rules and actions: warnings and zoom
   function applyLogicForHost(settings, host) {
-    if (!settings) {
-      debug("No site-specific settings for " + host + " → skip.");
+    if (!settings) return;
+
+    const { mode, zoom, rule, disabled } = settings;
+
+    // Skip if disabled
+    if (disabled) {
+      debug(host + " is disabled → skip processing.");
       return;
     }
 
-    const { mode, zoom, rule } = settings;
-
     // Rule: desktopOnly → skip on mobile UA
     if (rule === "desktopOnly" && isMobileUA()) {
-      debug(host + " mobile UA detected → skip processing (desktopOnly rule).");
+      debug(host + " mobile UA detected → skip (desktopOnly rule).");
       return;
     }
 
@@ -87,13 +90,12 @@
             "Switch to Desktop mode for better experience.");
     }
 
-    // Apply zoom for both desktop and mobile modes
+    // Apply zoom
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", () => applyZoom(zoom));
     } else {
       applyZoom(zoom);
     }
-    debug("Applied zoom for mode=" + mode + " scale=" + zoom);
   }
 
   // Main bootstrap

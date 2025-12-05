@@ -10,25 +10,41 @@ function getDefaultConfig() {
       mobileZoomScale: 2.0   // default zoom when using mobile mode
     },
     sites: {
-      "youtube.com": { mode: "desktop", zoomScale: 1.75, rule: "desktopOnly" },
+      "youtube.com": { mode: "desktop", zoomScale: 2.0, rule: "desktopOnly" },
       "youtu.be":    { mode: "desktop", zoomScale: 2.0, rule: "desktopOnly" },
       "spotify.com": { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
       "tiktok.com":  { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
       "bilibili.com":  { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
+      "douyin.com": { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
+      "xiaohongshu.com": { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
     }
   };
 }
 
 // Load config or initialize defaults if missing
+// Load config or initialize defaults if missing
 function loadConfig(callback) {
   chrome.storage.sync.get({ config: null }, function(items) {
+    const defaultConfig = getDefaultConfig();
+
     if (!items.config) {
-      const defaultConfig = getDefaultConfig();
+      // Nothing saved yet → use defaults
       chrome.storage.sync.set({ config: defaultConfig }, function() {
         callback(defaultConfig);
       });
     } else {
-      callback(items.config);
+      // Merge defaults with stored config
+      const stored = items.config;
+
+      // Ensure global keys exist
+      stored.global = Object.assign({}, defaultConfig.global, stored.global);
+
+      // Ensure sites include all defaults
+      stored.sites = Object.assign({}, defaultConfig.sites, stored.sites);
+
+      chrome.storage.sync.set({ config: stored }, function() {
+        callback(stored);
+      });
     }
   });
 }

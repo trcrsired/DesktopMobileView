@@ -61,6 +61,13 @@ function renderSites(config) {
     });
     tdRule.appendChild(ruleSelect);
 
+    // Disabled cell
+    const tdDisabled = document.createElement('td');
+    const disableCheckbox = document.createElement('input');
+    disableCheckbox.type = 'checkbox';
+    disableCheckbox.checked = !!s.disabled;
+    tdDisabled.appendChild(disableCheckbox);
+
     // Actions cell
     const tdActions = document.createElement('td');
     const removeBtn = document.createElement('button');
@@ -68,10 +75,12 @@ function renderSites(config) {
     removeBtn.onclick = () => tr.remove();
     tdActions.appendChild(removeBtn);
 
+    // Append all cells
     tr.appendChild(tdDomain);
     tr.appendChild(tdMode);
     tr.appendChild(tdZoom);
     tr.appendChild(tdRule);
+    tr.appendChild(tdDisabled);
     tr.appendChild(tdActions);
 
     tbody.appendChild(tr);
