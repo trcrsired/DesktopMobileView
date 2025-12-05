@@ -13,7 +13,8 @@ function getDefaultConfig() {
       "youtube.com": { mode: "desktop", zoomScale: 2.0, rule: "desktopOnly" },
       "youtu.be":    { mode: "desktop", zoomScale: 2.0, rule: "desktopOnly" },
       "spotify.com": { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
-      "tiktok.com":  { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" }
+      "tiktok.com":  { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
+      "bilibili.com":  { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
     }
   };
 }
