@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "description": "Dual-mode view: global and site-specific configuration for desktop/mobile behavior and zoom scaling.",
   "options_page": "options.html",
+  "action": {},
+  "background": {
+    "service_worker": "background.js"
+  },
   "options_ui":
   {
     "page": "options.html",

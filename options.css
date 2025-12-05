@@ -1,0 +1,104 @@
+/* Base body styling */
+body { 
+  font-family: sans-serif; /* Use a clean sans-serif font */
+  margin: 20px;            /* Add spacing around the page */
+}
+
+/* Headings styling */
+h1, h2 { 
+  margin: 8px 0;           /* Vertical spacing for headings */
+}
+
+/* Fieldset spacing */
+fieldset { 
+  margin-bottom: 16px;     /* Space below each fieldset */
+}
+
+/* Label styling */
+label { 
+  display: inline-block;   /* Make labels align nicely with inputs */
+  margin: 6px 0;           /* Vertical spacing for labels */
+}
+
+/* Table layout */
+table { 
+  border-collapse: collapse; /* Remove double borders */
+  width: 100%;               /* Full width table */
+  margin-top: 8px;           /* Space above the table */
+}
+
+/* Table cells */
+th, td { 
+  border: 1px solid #ddd;  /* Light gray border */
+  padding: 8px;            /* Padding inside cells */
+}
+
+/* Table header styling */
+th { 
+  background: #f7f7f7;     /* Light background for headers */
+  text-align: left;        /* Align text to the left */
+}
+
+/* Number input width */
+input[type="number"] { 
+  width: 100px;            /* Fixed width for numeric inputs */
+}
+
+/* Action buttons container */
+.actions { 
+  margin-top: 12px;        /* Space above action buttons */
+}
+
+/* Button spacing */
+button { 
+  margin-right: 8px;       /* Space between buttons */
+}
+
+/* Select and text input width */
+select, input[type="text"] { 
+  width: 180px;            /* Fixed width for select and text inputs */
+}
+
+/* Rule select width */
+.rule-select { 
+  width: 160px;            /* Specific width for rule dropdown */
+}
+
+@media (max-width: 600px) {
+  table, tr, td {
+    display: block;
+    width: 100%;
+  }
+  td {
+    margin-bottom: 8px;
+  }
+}
+
+
+/* Light mode (default) */
+body {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;   /* dark background */
+    color: #e0e0e0;        /* light text */
+  }
+
+  table, th, td {
+    border-color: #444;
+  }
+
+  th {
+    background: #1e1e1e;
+  }
+
+  input, select, button {
+    background: #222;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+}

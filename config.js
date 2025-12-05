@@ -10,7 +10,7 @@ function getDefaultConfig() {
       mobileZoomScale: 2.0   // default zoom when using mobile mode
     },
     sites: {
-      "youtube.com": { mode: "desktop", zoomScale: 2.0, rule: "desktopOnly" },
+      "youtube.com": { mode: "desktop", zoomScale: 1.75, rule: "desktopOnly" },
       "youtu.be":    { mode: "desktop", zoomScale: 2.0, rule: "desktopOnly" },
       "spotify.com": { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
       "tiktok.com":  { mode: "desktop", zoomScale: 2.0, rule: "forceDesktop" },
