@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "DesktopMobileView",
+  "version": "1.0.0",
+  "description": "Dual-mode view: global and site-specific configuration for desktop/mobile behavior and zoom scaling.",
+  "options_page": "options.html",
+  "options_ui":
+  {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["config.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

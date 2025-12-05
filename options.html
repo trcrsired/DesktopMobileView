@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DesktopMobileView Settings</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    h1, h2 { margin: 8px 0; }
+    fieldset { margin-bottom: 16px; }
+    label { display: inline-block; margin: 6px 0; }
+    table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+    th, td { border: 1px solid #ddd; padding: 8px; }
+    th { background: #f7f7f7; text-align: left; }
+    input[type="number"] { width: 100px; }
+    .actions { margin-top: 12px; }
+    button { margin-right: 8px; }
+    select, input[type="text"] { width: 180px; }
+    .rule-select { width: 160px; }
+  </style>
+</head>
+<body>
+  <h1>DesktopMobileView Settings</h1>
+
+  <!-- Global configuration -->
+  <fieldset>
+    <legend>Global configuration</legend>
+    <!-- Global mode -->
+    <label>
+      <input type="radio" name="globalMode" value="desktop"> Desktop mode
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="globalMode" value="mobile"> Mobile mode
+    </label>
+    <br>
+    <!-- Global zoom scale -->
+    <label for="desktopZoom">Desktop default zoom (1.0–5.0):</label>
+    <input id="desktopZoom" type="number" min="1" max="5" step="0.1" /><br>
+
+    <label for="mobileZoom">Mobile default zoom (1.0–5.0):</label>
+    <input id="mobileZoom" type="number" min="1" max="5" step="0.1" />
+  </fieldset>
+
+  <!-- Site-specific configuration table -->
+  <h2>Site-specific configuration</h2>
+  <table id="siteTable">
+    <thead>
+      <tr>
+        <th>Domain (e.g., youtube.com)</th>
+        <th>Mode</th>
+        <th>Zoom scale (1.0–5.0)</th>
+        <th>Rule</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="actions">
+    <button id="addRow">Add site</button>
+    <button id="saveAll">Save all</button>
+    <button id="resetDefaults">Reset to defaults</button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="options.js"></script>
+
+</body>
+</html>
