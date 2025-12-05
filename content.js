@@ -10,9 +10,9 @@
 // - forceDesktop: warn the user if mobile mode is chosen (sites often push app installs)
 
 (function() {
-  const DEBUGMOBILE = true;
+  const DEBUGMOBILE = false;
 
-  // Debug helper: show alert messages when DEBUG is true
+  // Debug helper: show alert messages when DEBUGMOBILE is true
   function debug(msg) {
     if (DEBUGMOBILE)
     {
